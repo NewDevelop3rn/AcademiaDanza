@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia de Danza ProMaxHD - Academia</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header y navegación */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo span {
+            color: #79c2ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #79c2ff;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #79c2ff;
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Marquesina */
+        .marquee {
+            background-color: #1e3c72;
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-content {
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+            font-weight: 500;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 15px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: #79c2ff;
+            font-size: 18px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #e0e0e0;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Efectos de animación */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Contenido de academia */
+        .welcome-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/Images/academiaDanza.jpeg) center/cover no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Secciones con tarjetas */
+        .section-title {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #1e3c72, #79c2ff);
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #888;
+            overflow: hidden; /* Evita que se salga */
+        }
+
+        .card-img img{
+            width: 100%;         /* Escala horizontalmente al 100% del contenedor */
+            height: 100%;        /* Escala verticalmente también */
+            object-fit: cover;   /* Corta la imagen si no cabe, pero sin deformarla */
+            display: block;      /* Elimina espacio indeseado debajo de la imagen */
+        }
+
+        .card-img.ballet {
+            background-image: url('/Images/ballet.jpg');
+            background-size: cover;       /* Redimensiona sin deformar */
+            background-position: center;  /* Centra la imagen */
+            background-repeat: no-repeat;
+        }
+
+        .card-img.contemporaneo {
+            background-image: url('/Images/contemporaneo.jpg');
+        }
+
+        .card-img.flamenco {
+            background-image: url('/Images/flamenco.jpg');
+        }
+
+        .card-img.hiphop {
+            background-image: url('/Images/hiphop.jpg');
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            color: #1e3c72;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(30, 60, 114, 0.3);
+        }
+
+        /* Videos y elementos multimedia */
+        .video-container {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .audio-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .audio-title {
+            color: #1e3c72;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .audio-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .audio-item {
+            background-color: #f5f9ff;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .audio-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Horarios y tablas */
+        .schedule-container {
+            margin-bottom: 40px;
+            overflow-x: auto;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .schedule-table th {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            font-weight: 500;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: #f5f9ff;
+        }
+
+        .schedule-table td.ballet {
+            background-color: #ffd6e0;
+        }
+
+        .schedule-table td.contemporaneo {
+            background-color: #d6fff1;
+        }
+
+        .schedule-table td.flamenco {
+            background-color: #fff2d6;
+        }
+
+        .schedule-table td.hiphop {
+            background-color: #d6d9ff;
+        }
+
+        .schedule-table td.folklore {
+            background-color: #e0ffd6;
+        }
+
+        /* Galería de fotos */
+        .gallery-container {
+            margin-bottom: 40px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-color: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #888;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;  /* Hace que las imágenes llenen el contenedor */
+            height: auto;
+            object-fit: cover; /* Mantiene la proporción de la imagen sin deformarla */
+        }
+
+        /* Sección de instructores */
+        .instructors-section {
+            margin-bottom: 40px;
+        }
+
+        .instructor-card {
+            display: flex;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructor-img {
+            flex: 0 0 150px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #888;
+        }
+
+        .instructor-info {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .instructor-info h3 {
+            color: #1e3c72;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .instructor-info .role {
+            color: #79c2ff;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .instructor-info p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* Estilos para información de usuario */
+        .user-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .user-header h2 {
+            color: #1e3c72;
+            margin: 0;
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+
+        .user-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .info-item {
+            padding: 15px;
+            background-color: #f5f9ff;
+            border-radius: 8px;
+        }
+
+        .info-item label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #1e3c72;
+        }
+
+        .info-item p {
+            margin: 0;
+            color: #555;
+        }
+
+        .subscription {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4ff;
+            border-radius: 8px;
+            border-left: 4px solid #1e3c72;
+        }
+
+        /* Botón de reproducción para videos */
+        .video-overlay {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-btn::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-top: 20px solid transparent;
+            border-left: 30px solid #1e3c72;
+            border-bottom: 20px solid transparent;
+            margin-left: 7px;
+        }
+
+        /* Diseño responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .instructor-card {
+                flex-direction: column;
+            }
+
+            .instructor-img {
+                height: 200px;
+                flex: none;
+            }
+            .instructor-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Esto hace que la imagen se ajuste sin deformarse */
+                object-position: center;
+                display: block;
+            }
+
+            .welcome-section {
+                padding: 40px 0;
+            }
+
+            .welcome-section h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Estilo para noticias o anuncios */
+        .news-container {
+            background: linear-gradient(135deg, #f5f9ff, #e0f0ff);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-title {
+            color: #1e3c72;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .news-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .news-date {
+            color: #79c2ff;
+            font-weight: 500;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .news-item h4 {
+            color: #1e3c72;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .news-item p {
+            color: #666;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* Estilo para menú desplegable en móvil */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 8px 0;
+            }
+        }
+
+        /* Segunda marquesina */
+        .marquee2 {
+            background-color: #79c2ff;
+            color: #1e3c72;
+            padding: 10px 0;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .marquee2-content {
+            white-space: nowrap;
+            animation: marquee2 15s linear infinite;
+            font-weight: 500;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee2 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Marquesina superior -->
+    <div class="marquee slice">
+        <div class="marquee-content">
+            ¡Bienvenidos a Academia de Danza ProMaxHD! Inscripciones abiertas para nuevos cursos de ballet, contemporaneo, flamenco y hiphop. ¡Aprovecha 1% de descuento en matriculas este mes!
+        </div>
+    </div>
+
+    <!-- Header con navegación -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">ProMax<span>HD</span></div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="registro.html">Registro</a></li>
+                    <li><a href="academia.html" class="active">Academia</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main>
+        <div class="container">
+            <!-- Sección de bienvenida -->
+            <section class="welcome-section fade-in">
+                <h1>Bienvenido a Academia de Danza ProMaxHD</h1>
+                <p>Descubre el arte de la danza en un ambiente profesional y acogedor. Ofrecemos clases para todos los niveles y edades con los mejores instructores.</p>
+            </section>
+
+            <!-- Información del usuario -->
+            <section class="user-section fade-in" id="userSection">
+                <div class="user-header">
+                    <h2>Mi Perfil</h2>
+                    <button class="logout-btn" id="logoutBtn">Cerrar Sesión</button>
+                </div>
+                <div class="user-info" id="userInfo">
+                    <!-- Información del usuario se cargará aquí -->
+                </div>
+                <div class="subscription">
+                    <h3>Tu Membresía</h3>
+                    <p>Estatus: <strong>Activa</strong></p>
+                    <p>Tipo de membresía: <strong>Estudiante Premium</strong></p>
+                    <p>Fecha de renovación: <strong>15/06/2025</strong></p>
+                </div>
+            </section>
+
+            <!-- Segunda marquesina -->
+            <div class="marquee2 fade-in">
+                <div class="marquee2-content">
+                    ¡Próximamente Gran Exhibición de Fin de Curso! 30 de Mayo 2025 - Teatro Municipal - Boletos ya disponibles - No te pierdas esta increíble muestra de talento y arte
+                </div>
+            </div>
+
+            <!-- Noticias y Anuncios -->
+            <section class="news-container fade-in">
+                <h2 class="news-title">Noticias y Anuncios</h2>
+                <div class="news-item">
+                    <div class="news-date">12 de Mayo, 2025</div>
+                    <h4>Nuevos Horarios de Clases de Verano</h4>
+                    <p>Nos complace anunciar que ya están disponibles los nuevos horarios para el periodo de verano. ¡Más opciones en horarios matutinos!</p>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">8 de Mayo, 2025</div>
+                    <h4>Taller Especial de Danza Contemporánea</h4>
+                    <p>El próximo 20 de mayo contaremos con la presencia especial de la maestra internacional Laura Rodríguez para un taller intensivo de danza contemporánea.</p>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">5 de Mayo, 2025</div>
+                    <h4>Preparativos para la Exhibición de Fin de Curso</h4>
+                    <p>Iniciamos los ensayos generales para nuestra gran exhibición. Todos los alumnos deben confirmar su participación antes del 15 de mayo.</p>
+                </div>
+            </section>
+
+            <!-- Sección de Disciplinas -->
+            <section class="fade-in">
+                <h2 class="section-title">Nuestras Disciplinas</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/Images/ballet.jpg" alt="Ballet">
+                        </div>
+                        <div class="card-content">
+                            <h3>Ballet Clásico</h3>
+                            <p>Técnica, disciplina y elegancia...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/Images/contemporaneo.jpg" alt="Contemporáneo">
+                        </div>
+                        <div class="card-content">
+                            <h3>Danza Contemporánea</h3>
+                            <p>Expresión, libertad y creatividad. Explora el movimiento con un enfoque moderno e innovador.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/Images/flamenco.jpg" alt="Flamenco">
+                        </div>
+                        <div class="card-content">
+                            <h3>Flamenco</h3>
+                            <p>Pasión, fuerza y tradición. Descubre el arte del flamenco con sus vibrantes ritmos y movimientos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="/Images/hiphop.jpg" alt="Hip Hop">
+                        </div>
+                        <div class="card-content">
+                            <h3>Hip Hop</h3>
+                            <p>Energía, ritmo y estilo urbano. Aprende las últimas tendencias de este dinámico estilo de baile.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- Sección de Videos -->
+            <section class="video-container fade-in">
+                <h2 class="section-title">Nuestros Videos</h2>
+                <div class="video-wrapper">
+                    <video id="academyVideo" autoplay muted playsinline loop style="width: 100%;">
+                        <source src="/Videos/VideoMuestra.mp4" type="video/mp4">
+                        Tu navegador no soporta videos HTML5.
+                    </video>
+                    
+                </div>
+            </section>
+
+            <!-- Horarios de Clases -->
+            <section class="schedule-container fade-in">
+                <h2 class="section-title">Horarios de Clases</h2>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Hora</th>
+                                <th>Lunes</th>
+                                <th>Martes</th>
+                                <th>Miércoles</th>
+                                <th>Jueves</th>
+                                <th>Viernes</th>
+                                <th>Sábado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>9:00 - 10:30</th>
+                                <td class="ballet">Ballet (Básico)</td>
+                                <td class="contemporaneo">Contemporáneo (Intermedio)</td>
+                                <td class="ballet">Ballet (Básico)</td>
+                                <td class="contemporaneo">Contemporáneo (Intermedio)</td>
+                                <td class="ballet">Ballet (Básico)</td>
+                                <td class="ballet">Ballet (Todos los niveles)</td>
+                            </tr>
+                            <tr>
+                                <th>11:00 - 12:30</th>
+                                <td class="flamenco">Flamenco (Básico)</td>
+                                <td class="ballet">Ballet (Intermedio)</td>
+                                <td class="flamenco">Flamenco (Básico)</td>
+                                <td class="ballet">Ballet (Intermedio)</td>
+                                <td class="flamenco">Flamenco (Básico)</td>
+                                <td class="flamenco">Flamenco (Todos los niveles)</td>
+                            </tr>
+                            <tr>
+                                <th>16:00 - 17:30</th>
+                                <td class="ballet">Ballet (Avanzado)</td>
+                                <td class="hiphop">Hip Hop (Básico)</td>
+                                <td class="ballet">Ballet (Avanzado)</td>
+                                <td class="hiphop">Hip Hop (Básico)</td>
+                                <td class="ballet">Ballet (Avanzado)</td>
+                                <td class="folklore">Danza Folklórica</td>
+                            </tr>
+                            <tr>
+                                <th>18:00 - 19:30</th>
+                                <td class="contemporaneo">Contemporáneo (Avanzado)</td>
+                                <td class="flamenco">Flamenco (Intermedio)</td>
+                                <td class="contemporaneo">Contemporáneo (Avanzado)</td>
+                                <td class="flamenco">Flamenco (Intermedio)</td>
+                                <td class="contemporaneo">Contemporáneo (Avanzado)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>20:00 - 21:30</th>
+                                <td class="hiphop">Hip Hop (Intermedio)</td>
+                                <td class="hiphop">Hip Hop (Avanzado)</td>
+                                <td class="hiphop">Hip Hop (Intermedio)</td>
+                                <td class="hiphop">Hip Hop (Avanzado)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Galería de Fotos -->
+            <section class="gallery-container fade-in">
+                <h2 class="section-title">Galería de Fotos</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="/Images/foto1.jpg" alt="Descripción de la Foto 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/foto2.jpg" alt="Descripción de la Foto 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/foto3.jpg" alt="Descripción de la Foto 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/foto4.jpg" alt="Descripción de la Foto 4">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/foto5.jpg" alt="Descripción de la Foto 5">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/foto6.jpg"Descripción de la Foto 6">
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Sección de Audio -->
+            <section class="audio-container fade-in">
+                <h2 class="audio-title">Música para Clases</h2>
+                <div class="audio-list">
+                    <div class="audio-item">
+                        <div class="audio-name">Vals Clásico - Ballet Básico</div>
+                        <div class="audio-controls">
+                            <audio controls>
+                                <source src="/Musica/danza.mp3" type="audio/mp3">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="audio-item">
+                        <div class="audio-name">Ritmos Contemporáneos - Nivel Intermedio</div>
+                        <div class="audio-controls">
+                            <audio controls>
+                                <source src="Musica/contemporaneo.mp3" type="audio/mp3">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="audio-item">
+                        <div class="audio-name">Flamenco Sevillanas - Nivel Avanzado</div>
+                        <div class="audio-controls">
+                            <audio controls>
+                                <source src="Musica/flamenco.mp3" type="audio/mp3">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="audio-item">
+                        <div class="audio-name">Hip Hop Mix - Todos los niveles</div>
+                        <div class="audio-controls">
+                            <audio controls>
+                                <source src="Musica/hiphop.mp3" type="audio/mp3">
+                                Tu navegador no soporta el elemento de audio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Instructores -->
+            <section class="instructors-section fade-in">
+                <h2 class="section-title">Nuestros Instructores</h2>
+                
+                <div class="instructor-card">
+                    <div class="instructor-img">
+                        <img src="/Images/mariaGonzales.jpg" alt="María González">
+                    </div>
+                    <div class="instructor-info">
+                        <h3>María González</h3>
+                        <div class="role">Directora e Instructora de Ballet</div>
+                        <p>Con más de 20 años de experiencia como bailarina profesional y 15 como instructora, María ha formado parte de las compañías de ballet más prestigiosas de Europa. Su pasión por enseñar y su dedicación a la excelencia técnica la convierten en una mentora excepcional para bailarines de todos los niveles.</p>
+                    </div>
+                </div>
+                
+                <div class="instructor-card">
+                    <div class="instructor-img">
+                        <img src="/Images/carlosRamirez.jpg" alt="Carlos Ramírez">
+                    </div>
+                    <div class="instructor-info">
+                        <h3>Carlos Ramírez</h3>
+                        <div class="role">Instructor de Danza Contemporánea</div>
+                        <p>Formado en las más reconocidas escuelas de danza contemporánea, Carlos combina técnicas modernas con expresión corporal única. Su enfoque innovador y dinámico ha inspirado a numerosos estudiantes a descubrir nuevas formas de expresión a través del movimiento.</p>
+                    </div>
+                </div>
+                
+                <div class="instructor-card">
+                    <div class="instructor-img">
+                        <img src="/Images/luciaFernandez.jpeg" alt="Lucía Fernández">
+                    </div>
+                    <div class="instructor-info">
+                        <h3>Lucía Fernández</h3>
+                        <div class="role">Instructora de Flamenco</div>
+                        <p>Nacida en Sevilla y con raíces gitanas, Lucía trae la autenticidad y pasión del verdadero flamenco a nuestra academia. Su técnica impecable y su capacidad para transmitir la esencia cultural de este arte la hacen una instructora inigualable.</p>
+                    </div>
+                </div>
+                
+                <div class="instructor-card">
+                    <div class="instructor-img">
+                        <img src="/Images/miguelTorres.jpg" alt="Miguel Torres">
+                    </div>
+                    <div class="instructor-info">
+                        <h3>Miguel Torres</h3>
+                        <div class="role">Instructor de Hip Hop</div>
+                        <p>Reconocido en la escena urbana por su estilo único y energético, Miguel ha participado en competiciones internacionales y videoclips de artistas famosos. Su enfoque fresco y actual del hip hop conecta especialmente con los estudiantes más jóvenes, inspirándolos a desarrollar su propio estilo.</p>
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Sección de Testimonios -->
+            <section class="fade-in">
+                <h2 class="section-title">Testimonios de Nuestros Alumnos</h2>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Ana Martínez</h3>
+                            <p>"Llevo 3 años en la academia y ha sido una experiencia transformadora. Los instructores son excepcionales y el ambiente es muy acogedor. He mejorado mi técnica enormemente y he hecho amistades increíbles."</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Pedro López</h3>
+                            <p>"Nunca pensé que a mis 40 años podría aprender a bailar, pero los profesores de ProMaxHD tienen una paciencia infinita y una metodología que hace todo más fácil. ¡Ahora no puedo parar de bailar!"</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>Laura Gómez</h3>
+                            <p>"Mi hija de 8 años ha florecido desde que comenzó sus clases de ballet. No solo ha mejorado su postura y coordinación, sino que también ha ganado mucha confianza en sí misma. Estamos encantados."</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Contacto -->
+            <section class="fade-in">
+                <h2 class="section-title">Contacto</h2>
+                <div class="contact-container" style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 300px; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <h3 style="color: #1e3c72; margin-top: 0;">Información de Contacto</h3>
+                        <p><strong>Dirección:</strong> Calle Principal 123, Ciudad</p>
+                        <p><strong>Teléfono:</strong> (123) 456-7890</p>
+                        <p><strong>Email:</strong> info@academiaprochoreohd.com</p>
+                        <p><strong>Horario de Atención:</strong><br>
+                        Lunes a Viernes: 8:30 AM - 9:00 PM<br>
+                        Sábados: 9:00 AM - 2:00 PM</p>
+                    </div>
+                    <div style="flex: 1; min-width: 300px; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                        <h3 style="color: #1e3c72; margin-top: 0;">Envíanos un Mensaje</h3>
+                        <form id="contactForm">
+                            <div style="margin-bottom: 15px;">
+                                <label for="name" style="display: block; margin-bottom: 5px; color: #1e3c72;">Nombre:</label>
+                                <input type="text" id="name" name="name" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="email" style="display: block; margin-bottom: 5px; color: #1e3c72;">Email:</label>
+                                <input type="email" id="email" name="email" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label for="message" style="display: block; margin-bottom: 5px; color: #1e3c72;">Mensaje:</label>
+                                <textarea id="message" name="message" rows="5" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 5px;"></textarea>
+                            </div>
+                            <button type="submit" style="background: linear-gradient(135deg, #1e3c72, #2a5298); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de FAQ -->
+            <section class="fade-in" style="margin-bottom: 40px;">
+                <h2 class="section-title">Preguntas Frecuentes</h2>
+                <div style="background-color: white; border-radius: 10px; padding: 20px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #1e3c72; margin-top: 0;">¿Necesito experiencia previa para inscribirme?</h3>
+                        <p>No, tenemos clases para todos los niveles, desde principiantes absolutos hasta bailarines avanzados. Nuestros instructores adaptan las clases según el nivel de cada grupo.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #1e3c72;">¿Cuál es la edad mínima para inscribirse?</h3>
+                        <p>Ofrecemos clases desde los 4 años en adelante. Para los más pequeños, tenemos programas especialmente diseñados que combinan juego y aprendizaje.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #1e3c72;">¿Qué debo llevar a mi primera clase?</h3>
+                        <p>Recomendamos ropa cómoda que permita movimiento libre. Los requisitos específicos de calzado varían según la disciplina, pero para tu primera clase puedes venir con calcetines o descalzo para ballet y contemporáneo, y zapatillas deportivas limpias para hip hop.</p>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <h3 style="color: #1e3c72;">¿Ofrecen descuentos para estudiantes o familias?</h3>
+                        <p>Sí, contamos con tarifas especiales para estudiantes con carnet vigente y descuentos para familias que inscriban a más de un miembro. Consulta nuestras tarifas actualizadas en recepción.</p>
+                    </div>
+                    <div>
+                        <h3 style="color: #1e3c72;">¿Realizan presentaciones o exhibiciones durante el año?</h3>
+                        <p>Organizamos dos grandes exhibiciones anuales, una en diciembre y otra en mayo/junio, donde todos nuestros alumnos tienen la oportunidad de mostrar lo aprendido. También participamos en eventos culturales de la ciudad a lo largo del año.</p>
+                    </div>
+                </div>
+            </section>
+
+            </div>
+            </main>
+
+            <!-- Footer -->
+            <footer>
+                <div class="container footer-content">
+                    <div class="footer-section">
+                        <h3>Academia de Danza ProMaxHD</h3>
+                        <p>Fomentando el arte y la pasión por la danza desde ayer.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Enlaces Rápidos</h3>
+                        <p><a href="index.html">Inicio</a></p>
+                        <p><a href="registro.html">Registro</a></p>
+                        <p><a href="academia.html">Academia</a></p>
+                        <p><a href="#">Clases</a></p>
+                        <p><a href="#">Eventos</a></p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contacto</h3>
+                        <p>Calle Principal 123, Ciudad</p>
+                        <p>Teléfono: (123) 456-7890</p>
+                        <p>Email: info@academiaprochoreohd.com</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Síguenos</h3>
+                        <p>Facebook</p>
+                        <p>Instagram</p>
+                        <p>YouTube</p>
+                        <p>TikTok</p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Academia de Danza ProMaxHD - Todos los derechos reservados</p>
+                </div>
+            </footer>
+
+            <!-- Scripts -->
+            <script>
+                // Funcionalidad para el menú móvil
+                document.getElementById('menuToggle').addEventListener('click', function() {
+                    document.getElementById('navMenu').classList.toggle('show');
+                });
+
+                // Funcionalidad para el video
+                document.getElementById('videoThumbnail').addEventListener('click', function() {
+                    this.style.display = 'none';
+                    const video = document.getElementById('academyVideo');
+                    video.style.display = 'block';
+                    video.src = "#"; // Aquí se pondría la URL real del video
+                    video.play();
+                });
+
+                // Simulación de carga de datos del usuario
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Datos de ejemplo - en una aplicación real, estos vendrían del servidor
+                    const userData = {
+                        nombre: "Ana García",
+                        email: "ana.garcia@email.com",
+                        telefono: "(123) 456-7890",
+                        fechaRegistro: "10/01/2025",
+                        clasesFavoritas: "Ballet, Contemporáneo",
+                        asistenciaMes: "12 clases"
+                    };
+
+                    // Crear y mostrar la información del usuario
+                    const userInfoContainer = document.getElementById('userInfo');
+                    
+                    for (const [key, value] of Object.entries(userData)) {
+                        const infoItem = document.createElement('div');
+                        infoItem.className = 'info-item';
+                        
+                        const label = document.createElement('label');
+                        label.textContent = key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1');
+                        
+                        const text = document.createElement('p');
+                        text.textContent = value;
+                        
+                        infoItem.appendChild(label);
+                        infoItem.appendChild(text);
+                        userInfoContainer.appendChild(infoItem);
+                    }
+
+                    // Funcionalidad para el botón de logout
+                    document.getElementById('logoutBtn').addEventListener('click', function() {
+                        alert('Sesión cerrada. Redirigiendo al inicio...');
+                        // En una aplicación real, aquí iría el código para cerrar sesión
+                        // window.location.href = "index.html";
+                    });
+                });
+            </script>
+</body>
+</html>
